@@ -457,7 +457,6 @@ Tabs.Rebirth:AddToggle("AutoSizeToggle", {
     end
 end)
 
--- Fast Rebirths (Only Packs)
 Tabs.Rebirth:AddToggle("FastRebirthsToggle", {
     Title = "Fast Rebirths (Need 7-8 Packs)",
     Default = false
@@ -466,9 +465,14 @@ Tabs.Rebirth:AddToggle("FastRebirthsToggle", {
         local success, err = pcall(function()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/ZeusLGD/Fast-Rebirth-2/refs/heads/main/ZeusLGD"))()
         end)
-        if not success then
-            warn("[Fast Rebirths] Erro ao carregar script externo:", err)
+        if success and _G.startFastGrind then
+            _G.startFastGrind()
+        elseif not success then
+            warn("[Fast Rebirths] Erro ao carregar:", err)
         end
+    else
+        _G.fastGrindActive = false
+        print("[Fast Rebirths] Loop parado.")
     end
 end)
 
