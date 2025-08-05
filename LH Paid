@@ -464,7 +464,7 @@ Tabs.Rebirth:AddToggle("FastRebirthsToggle", {
 }):OnChanged(function(state)
     if state then
         local success, err = pcall(function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/ZeusLGD/Fast-Rebirth/fac095b15ca0b83a9da0bcdf185e3724875070da/ZeusLGD"))()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/ZeusLGD/Fast-Rebirth-2/refs/heads/main/ZeusLGD"))()
         end)
         if not success then
             warn("[Fast Rebirths] Erro ao carregar script externo:", err)
